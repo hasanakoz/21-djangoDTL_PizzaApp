@@ -1,5 +1,13 @@
-{% extends 'pizzas/base.html' %}
-<br />
-{% block content %}
-<h1>Home Page</h1>
+{% extends 'pizzas/base.html' %} {% load static %} {% block content %}
+<div class="homeImage">
+  {% if messages %} <br />
+  {% for message in messages %} <br />
+  {% if message.tags == "warning" %}
+  <div id="warning" class="message rounded col-md-2">{{ message }}</div>
+  {% else %}
+  <div id="success" class="message rounded col-md-2">{{ message }}</div>
+  {% endif %} <br />
+  {% endfor %} <br />
+  {% endif %} <br />
+</div>
 {% endblock content %}
