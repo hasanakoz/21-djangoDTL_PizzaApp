@@ -6,6 +6,6 @@ urlpatterns = [
     path('pizzas/', pizzas, name='pizzas'),
     path('pizzas/<int:id>', order_view, name='order'),
     path('my_orders/', my_orders, name='my_orders'),
-    path('update_orders/', update_orders_view, name='update_orders'),
+    path('update_orders/<int:id>', update_orders_view, name='update_orders'),
     path('delete_orders/<int:id>', delete_order_view, name='delete_orders')
 ]

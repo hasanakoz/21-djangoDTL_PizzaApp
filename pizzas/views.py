@@ -25,7 +25,7 @@ def order_view(request, id):
             order.pizza = pizza
             order.user = request.user
             order.save()
-            return redirect('home')
+            return redirect('my_orders')
 
     context = {
         "pizza" : pizza,
@@ -56,7 +56,9 @@ def update_orders_view(request, id):
         'pizza': pizza,
         'form': form,
     }
-    return render(request, 'pizzas/update_orders', context)
+    return render(request, 'pizzas/update_orders.html', context)
 
 def delete_order_view(request,id):
     order = Order.objects.get(id=id)
+    order.delete()
+    return redirect('my_orders')
